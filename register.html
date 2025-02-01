@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #8500ff, #5acaff);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #5acaff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+           
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #8500ff;
+            transform: translateY(-2px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #5acaff;
+        }
+        #image{
+            height: 50px;
+            width: 50px;
+        }
+        .bar{
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="./lead.jpg " alt="werey" id="image"/>
+        <div class="bar">
+            <a href="index.html">Home</a>
+            <a href="help-support.html">Help & Support</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>  
+        </div>
+        
+    </div>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+    <script>
+        // Handle registration form submission
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fullName = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Save to localStorage (for demonstration)
+            const user = { fullName, email, password };
+            localStorage.setItem('user', JSON.stringify(user));
+
+            alert('Registration successful!');
+            window.location.href = 'login.html'; // Redirect to login
+        });
+    </script>
+</body>
+</html>
+    <script src="script.js"></script>
+</body>
+</html>

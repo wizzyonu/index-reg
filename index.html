@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #8500ff, #5acaff);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            
+            flex-direction: column;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #5acaff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #8500ff;
+            transform: translateY(-2px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #5acaff;
+        }
+
+        .dashboard {
+            text-align: center;
+        }
+
+        .dashboard p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        #registeredCourses {
+            margin-top: 20px;
+        }
+
+        #courseList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #courseList li {
+            background: #f1f1f1;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        #image{
+            height: 50px;
+            width: 50px;
+        }
+        .bar{
+            display: flex;
+            gap: 20px;
+        }
+        option{
+            width: 20%;
+        }
+        /* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; /* Make the container take up more screen width on mobile */
+    }
+
+    .form-group select {
+        font-size: 14px; /* Reduce font size for better fit */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+
+    .form-group select option {
+        font-size: 14px; /* Reduce font size for options */
+        padding: 8px; /* Add padding to options for better touch interaction */
+    }
+
+    .btn {
+        font-size: 14px; /* Reduce button font size */
+        padding: 8px 16px; /* Adjust button padding */
+    }
+    .navbar{
+        align-items: center;
+    }
+
+ 
+
+    
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="./lead.jpg" id="image" alt="werey"/>
+        <div class="bar">
+            <a href="index.html">Home</a>
+            <a href="help-support.html">Help & Support</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </div>
+       
+    </div>
+    <div class="container dashboard">
+        <h2>Dashboard</h2>
+        <p>Welcome to your dashboard!</p>
+        <form id="courseRegistrationForm">
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" required>
+                    <option value="">Choose a course</option>
+                    <option>CSC 304</option>
+                    <option>SEN 301</option>
+                    <option>CSC 301</option>
+                    <option>IFT 305</option>
+                    <option>IFT 309</option>
+                    <option>IFT 304</option>
+                    <option>IFT 300</option>
+                    <option>CSC 305</option>
+                    <option>CSC 302</option>
+
+                </select>
+            </div>
+            <button type="submit" class="btn" >Register Course</button>
+        </form>
+        <div id="registeredCourses">
+            <h3>Your Registered Courses</h3>
+            <ul id="courseList"></ul>
+        </div>
+    </div>
+    <script>
+        // Handle course registration
+        document.getElementById('courseRegistrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const course = document.getElementById('course').value;
+
+            if (course === "") {
+                alert("Please select a course before proceeding.");
+            } else {
+                alert("Course registered successfully!");
+                window.location.href = "login.html";// Redirects if validation passes
+            }
+            // Save to localStorage (for demonstration)
+           
+            // Display registered courses
+            
+
+           
+        });
+
+        // Display registered courses
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #8500ff, #5acaff);
+            height: 100vh;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            gap: 100px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in;
+            display: flex;
+            width: 70%;
+            
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #5acaff;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #5acaff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #5acaff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #8500ff;
+            transform: translateY(-2px);
+        }
+        #image{
+            height: 50px;
+            width: 50px;
+        }
+        .bar{
+            display: flex;
+            gap: 20px;
+        }
+        #supportForm{
+            width: 50%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                height: 100%;
+                flex-direction: column;
+                gap: 60px;
+            }
+            .navbar{
+                align-items: center;
+            }
+           
+
+            #supportForm {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="./lead.jpg" alt="werey" id="image"/>
+        <div class="bar">
+            <a href="index.html">Home</a>
+            <a href="help-support.html">Help & Support</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="casceding">
+            <h2>Help & Support</h2>
+        <p>If you need assistance, please refer to the following resources:</p>
+        <ul>
+            <li><strong>FAQs:</strong> Check out our <a href="#">Frequently Asked Questions</a> for quick answers.</li>
+            <li><strong>Live Chat:</strong> Click <a href="#">here</a> to chat with a support representative.</li>
+            <li><strong>Email Support:</strong> Send us an email at <a href="mailto:support@example.com">support@example.com</a>.</li>
+            <li><strong>Phone Support:</strong> Call us at <a href="tel:+1234567890">+123 456 7890</a>.</li>
+        </ul>
+        <h3>Submit a Support Ticket</h3>
+        </div>
+        
+        <form id="supportForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="issue">Describe Your Issue</label>
+                <textarea id="issue" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        // Handle support ticket submission
+        document.getElementById('supportForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const issue = document.getElementById('issue').value;
+
+            // Save to localStorage (for demonstration)
+            const ticket = { name, email, issue };
+            let tickets = JSON.parse(localStorage.getItem('tickets')) || [];
+            tickets.push(ticket);
+            localStorage.setItem('tickets', JSON.stringify(tickets));
+
+            alert('Support ticket submitted successfully!');
+            document.getElementById('supportForm').reset(); // Clear the form
+        });
+    </script>
+</body>
+</html>
